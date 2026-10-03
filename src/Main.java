@@ -5,6 +5,7 @@ public class Main {
     private final Scanner scanner = new Scanner(System.in);
     public boolean isDone = false;
     String filePath = "record.txt";
+    String patientName;
 
     public void process(int choice){
         MedicalRecordProcess mrp = new MedicalRecordProcess();
@@ -17,7 +18,8 @@ public class Main {
                 mrp.viewRecord(filePath);
                 break;
             case 3:
-                isDone = true;
+                searchUser();
+                mrp.searchRecord(filePath, patientName);
                 break;
             case 4:
                 isDone = true;
@@ -52,6 +54,9 @@ public class Main {
         System.out.println("Patient Name: ");
         String patientName = scanner.nextLine();
 
+        System.out.println("Contact Number");
+        String contactNum = scanner.nextLine();
+
         System.out.println("Age: ");
         int age = Integer.parseInt(scanner.nextLine().trim());
 
@@ -61,7 +66,15 @@ public class Main {
         System.out.println("Last Check Up: ");
         String lastCheckUp = scanner.nextLine();
 
-        return new MedicalRecord(patientName, age, diagnosis, lastCheckUp);
+        System.out.println("Created by: ");
+        String staffName = scanner.nextLine();
+
+        return new MedicalRecord(patientName, age, diagnosis, lastCheckUp, staffName, contactNum);
+    }
+
+    public void searchUser(){
+        System.out.print("Enter user:");
+        patientName = scanner.nextLine();
     }
 
     public static void main(String[] args){

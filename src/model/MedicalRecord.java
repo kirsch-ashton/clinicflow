@@ -5,20 +5,21 @@ public class MedicalRecord extends Doctor{
     private int patientAge;
     private String diagnosis;
     private String lastCheckup;
-    //private int age;
-
-    public MedicalRecord(){}
+    private String staffName;
+    private String contactNum;
 
     public MedicalRecord(String diagnosis, String lastCheckup){
         this.diagnosis = diagnosis;
         this.lastCheckup = lastCheckup;
     }
 
-    public MedicalRecord(String name, int age, String diagnosis, String lastCheckup){
+    public MedicalRecord(String name, int age, String diagnosis, String lastCheckup, String staffName, String contactNum){
         this.patientName = name;
         this.patientAge = age;
         this.diagnosis = diagnosis;
         this.lastCheckup = lastCheckup;
+        this.staffName = staffName;
+        this.contactNumber = contactNum;
     }
 
     public void displayInfo(){
@@ -30,19 +31,13 @@ public class MedicalRecord extends Doctor{
     }
 
     public String convertToFile(){
-        System.out.println("DEBUG");
-        System.out.println(getPatientName());
-        System.out.println(getContactNumber());
-        System.out.println(getAge());
-        System.out.println(this.diagnosis);
-        System.out.println("DEBUG");
 
         return "RECORD \n" +
                 "Name: " + this.patientName + "\n" +
-                //"Contact Number: " + getContactNumber() + "\n" +
+                "Contact Number: " + this.contactNumber + "\n" +
                 "Age: " + this.patientAge + "\n" +
                 "Diagnosis: " + this.diagnosis + "\n" +
-                //"Current Doctor: " + getDoctorName() + "\n" +
+                "Current Doctor: " + this.staffName + "\n" +
                 "Last Check up: " + this.lastCheckup + "\n";
     }
 }
