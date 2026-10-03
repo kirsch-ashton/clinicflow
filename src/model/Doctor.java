@@ -1,6 +1,6 @@
 package model;
 
-public class Doctor extends Patient{
+public class Doctor{
     private String name;
     private String specialization;
 

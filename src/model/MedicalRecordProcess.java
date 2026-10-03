@@ -16,6 +16,4 @@ public class MedicalRecordProcess{
             throw new RuntimeException(e);
         }
     }
-
-
 }

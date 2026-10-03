@@ -1,12 +1,12 @@
 package model;
 
-public class MedicalRecord extends Doctor{
+public class MedicalRecord{
     private String patientName;
     private int patientAge;
     private String diagnosis;
     private String lastCheckup;
     private String staffName;
-    private String contactNum;
+    private String contactNumber;
     private String weight;
     private String height;
 
@@ -29,7 +29,7 @@ public class MedicalRecord extends Doctor{
     public void displayInfo(){
         System.out.println("MEDICAL RECORD OF " + this.patientName);
         //System.out.println("Contact Number: " + this.patientCNumber);
-        System.out.println("Age: " + this.age);
+        //System.out.println("Age: " + this.age);
         System.out.println("Last Check up: " + this.lastCheckup);
         System.out.println("Diagnosis: " + this.diagnosis);
     }
@@ -44,6 +44,7 @@ public class MedicalRecord extends Doctor{
                 "Weight: " + this.weight + "\n" +
                 "Diagnosis: " + this.diagnosis + "\n" +
                 "Current Doctor: " + this.staffName + "\n" +
-                "Last Check up: " + this.lastCheckup + "\n";
+                "Last Check up: " + this.lastCheckup + "\n" +
+                " ";
     }
 }
