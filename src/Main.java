@@ -1,4 +1,6 @@
 import model.*;
+import patientrepository.PatientRepository;
+
 import java.util.Scanner;
 
 public class Main {
@@ -9,20 +11,21 @@ public class Main {
 
     public void process(int choice){
         MedicalRecordProcess mrp = new MedicalRecordProcess();
+        PatientRepository pr = new PatientRepository();
         switch(choice){
             case 1:
                 MedicalRecord record = askInput();
                 mrp.addRecord(record, filePath);
                 break;
             case 2:
-                mrp.viewRecord(filePath);
+                pr.viewRecord(filePath);
                 break;
             case 3:
                 searchUser();
-                mrp.searchRecord(filePath, patientName);
+                pr.searchRecord(filePath, patientName);
                 break;
             case 4:
-                isDone = true;
+                pr.deleteRecord(filePath, patientName);
                 break;
             case 5:
                 isDone = true;
@@ -46,7 +49,7 @@ public class Main {
     }
 
     public int nav(){
-        System.out.println("Enter: ");
+        System.out.print("Enter: ");
         return Integer.parseInt(scanner.nextLine().trim());
     }
 
@@ -60,6 +63,12 @@ public class Main {
         System.out.println("Age: ");
         int age = Integer.parseInt(scanner.nextLine().trim());
 
+        System.out.println("Weight: ");
+        String weight = scanner.nextLine();
+
+        System.out.println("Height: ");
+        String height = scanner.nextLine();
+
         System.out.println("Diagnosis: ");
         String diagnosis = scanner.nextLine();
 
@@ -69,7 +78,7 @@ public class Main {
         System.out.println("Created by: ");
         String staffName = scanner.nextLine();
 
-        return new MedicalRecord(patientName, age, diagnosis, lastCheckUp, staffName, contactNum);
+        return new MedicalRecord(patientName, age, diagnosis, lastCheckUp, staffName, contactNum, height, weight);
     }
 
     public void searchUser(){
