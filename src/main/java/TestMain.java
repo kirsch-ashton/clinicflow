@@ -26,8 +26,9 @@ public class TestMain extends Application {
         root.setLeft(sidePanel);
         root.setCenter(mainPanel);
         sidePanel.setStyle("-fx-background-color: teal;");
-        mainPanel.setStyle("-fx-background-color: aqua;");
+        mainPanel.setStyle("-fx-background-color: seashell;");
         Scene scene = new Scene(root, 800, 600);
+        scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
 
         stage.setTitle("Clinic Management System");
         stage.setScene(scene);
@@ -37,13 +38,24 @@ public class TestMain extends Application {
     private VBox createSidePanel() {
         Label title = new Label("Clinic Management System");
 
+        Button dashBoard = new Button("Dashboard");
+        dashBoard.setMaxSize(150, 200);
+        dashBoard.setPrefSize(150, 30);
+        dashBoard.setStyle("-fx-background-color: beige");
+
         Button addButton = new Button("Add Patient");
+        addButton.setMaxSize(150, 200);
+        addButton.setPrefSize(150, 30);
+        addButton.setStyle("-fx-background-color: beige");
         //addButton.setOnAction(e -> addPatient());
 
         Button viewButton = new Button("View Patients");
+        viewButton.setMaxSize(150, 200);
+        viewButton.setPrefSize(150, 30);
+        viewButton.setStyle("-fx-background-color: beige");
         //viewButton.setOnAction(e -> viewPatients());
 
-        return new VBox(10, title, addButton, viewButton);
+        return new VBox(20, title, dashBoard, addButton, viewButton);
     }
 
     private VBox createMainPanel(){
