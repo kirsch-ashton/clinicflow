@@ -195,12 +195,4 @@ public class AppointmentProcess {
         return Integer.parseInt(scanner.nextLine().trim());
     }
 
-    /*
-    public String info(){
-        return "\nAppointment Slip\n" +
-                "Patient: " + appointment.getPatientName() +
-                "Reason: " + appointment.getReason() +
-                "Appointed Time: " + appointment.getAppointedTimeDate() +
-                "Staff : " + appointment.getStaffName();
-    }*/
 }
