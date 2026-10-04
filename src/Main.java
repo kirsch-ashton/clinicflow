@@ -8,13 +8,17 @@ public class Main {
     public boolean isDone = false;
     String filePath = "record.txt";
     String patientName;
+    private Patient patient;
+    private Staff staff;
 
     public void process(int choice){
         MedicalRecordProcess mrp = new MedicalRecordProcess();
         PatientRepository pr = new PatientRepository();
         switch(choice){
             case 1:
-                MedicalRecord record = askInput();
+                Patient patient = patientInfo();
+                Staff staff = staffInfo();
+                MedicalRecord record = medicalInfo(patient, staff);
                 mrp.addRecord(record, filePath);
                 break;
             case 2:
@@ -53,32 +57,39 @@ public class Main {
         return Integer.parseInt(scanner.nextLine().trim());
     }
 
-    public MedicalRecord askInput(){
-        System.out.println("Patient Name: ");
-        String patientName = scanner.nextLine();
-
-        System.out.println("Contact Number");
-        String contactNum = scanner.nextLine();
-
-        System.out.println("Age: ");
-        int age = Integer.parseInt(scanner.nextLine().trim());
-
-        System.out.println("Weight: ");
+    public MedicalRecord medicalInfo(Patient patient, Staff staff){
+        System.out.print("Weight: ");
         String weight = scanner.nextLine();
 
-        System.out.println("Height: ");
+        System.out.print("Height: ");
         String height = scanner.nextLine();
 
-        System.out.println("Diagnosis: ");
+        System.out.print("Diagnosis: ");
         String diagnosis = scanner.nextLine();
 
-        System.out.println("Last Check Up: ");
+        System.out.print("Last Check Up: ");
         String lastCheckUp = scanner.nextLine();
 
-        System.out.println("Created by: ");
-        String staffName = scanner.nextLine();
+        return new MedicalRecord(diagnosis, lastCheckUp, height, weight, patient, staff);
+    }
 
-        return new MedicalRecord(patientName, age, diagnosis, lastCheckUp, staffName, contactNum, height, weight);
+    public Patient patientInfo(){
+        System.out.print("Patient Name: ");
+        String patientName = scanner.nextLine();
+
+        System.out.print("Contact Number");
+        String contactNum = scanner.nextLine();
+
+        System.out.print("Age: ");
+        String age = scanner.nextLine();
+
+        return new Patient(patientName, contactNum, age);
+    }
+
+    public Staff staffInfo(){
+        System.out.print("Enter Staff Name: ");
+        String name = scanner.nextLine();
+        return new Staff(name);
     }
 
     public void searchUser(){
