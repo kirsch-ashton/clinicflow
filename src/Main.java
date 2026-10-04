@@ -14,6 +14,8 @@ public class Main {
     public void process(int choice){
         MedicalRecordProcess mrp = new MedicalRecordProcess();
         PatientRepository pr = new PatientRepository();
+        AppointmentProcess ap = new AppointmentProcess();
+
         switch(choice){
             case 1:
                 Patient patient = patientInfo();
@@ -32,7 +34,7 @@ public class Main {
                 pr.deleteRecord(filePath, patientName);
                 break;
             case 5:
-                isDone = true;
+                ap.process();
                 break;
             case 6:
                 isDone = true;

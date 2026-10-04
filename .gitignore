@@ -11,6 +11,7 @@ build/
 
 # Runtime data
 record.txt
+appointment.txt
 
 #OsFiles
 .DS_Store

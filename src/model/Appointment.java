@@ -2,24 +2,54 @@ package model;
 
 public class Appointment {
     private String patientName;
-    private String doctorName;
+    private String staffName;
     private String appointedTimeDate;
-    private String diagnosis;
+    private String reason;
 
-    public Appointment(String patientName, String doctorName, String appointedTimeDate, String diagnosis){
-        this.patientName = patientName;
-        this.doctorName = doctorName;
+    public Appointment(String appointedTimeDate, String reason, String patientName, String staff){
         this.appointedTimeDate = appointedTimeDate;
-        this.diagnosis = diagnosis;
+        this.reason = reason;
+        this.patientName = patientName;
+        this.staffName = staff;
     }
 
-    public void displayInfo(){
-        System.out.println("Appointment Slip");
-        System.out.println("----------------");
-        System.out.println("Patient Name: " + this.patientName);
-        System.out.println("Diagnosis: " + this.diagnosis);
-        System.out.println("Appointed Time and Date: " + this.appointedTimeDate);
-        System.out.println("To be checked by Doctor, " + this.doctorName);
+    public String getAppointedTimeDate() {
+        return this.appointedTimeDate;
     }
 
+    public String getReason(){
+        return this.reason;
+    }
+
+    public String getPatientName(){
+        return this.patientName;
+    }
+
+    public String getStaffName(){
+        return this.staffName;
+    }
+
+    public void setAppointedTimeDate(String appointedTimeDate) {
+        this.appointedTimeDate = appointedTimeDate;
+    }
+
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    public void setStaffName(String staffName) {
+        this.staffName = staffName;
+    }
+
+    public String info(){
+        return "Appointment Slip\n" +
+                "Patient: " + patientName + "\n" +
+                "Reason: " + reason + "\n" +
+                "Appointed Time: " + appointedTimeDate + "\n" +
+                "Staff : " + staffName;
+    }
 }
