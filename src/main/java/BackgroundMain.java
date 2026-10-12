@@ -3,7 +3,7 @@ import patientrepository.PatientRepository;
 
 import java.util.Scanner;
 
-public class Main {
+public class BackgroundMain {
     private final Scanner scanner = new Scanner(System.in);
     public boolean isDone = false;
     String filePath = "record.txt";
@@ -100,12 +100,12 @@ public class Main {
     }
 
     public static void main(String[] args){
-        Main main = new Main();
+        BackgroundMain backgroundMain = new BackgroundMain();
 
-        while(!main.isDone){
-            main.menu();
-            int choice = main.nav();
-            main.process(choice);
+        while(!backgroundMain.isDone){
+            backgroundMain.menu();
+            int choice = backgroundMain.nav();
+            backgroundMain.process(choice);
         }
 
     }

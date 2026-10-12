@@ -1,6 +1,6 @@
 ### IntelliJ IDEA ###
 out/
-!**/src/main/**/out/
+!**/src/backgroundMain/**/out/
 !**/src/test/**/out/
 .idea/
 *.iml
@@ -29,7 +29,7 @@ Thumbs.db
 .springBeans
 .sts4-cache
 bin/
-!**/src/main/**/bin/
+!**/src/backgroundMain/**/bin/
 !**/src/test/**/bin/
 
 ### NetBeans ###

@@ -11,9 +11,15 @@ import javafx.scene.paint.Color;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
+import model.MedicalRecord;
+
 import javax.swing.*;
 
 public class TestMain extends Application {
+    private static MedicalRecord mr;
+    private static MedicalRecord mrp;
+    private static BackgroundMain bm;
+    static int choice;
 
     @Override
     public void start(Stage stage) {
@@ -57,7 +63,18 @@ public class TestMain extends Application {
         Button addButton = new Button("Add Patient");
         Button viewButton = new Button("View Patients");
 
+        dashBoard.setOnAction(event -> {
+            bm.process(choice);
+        });
+
         return new VBox(20,dashBoard,addButton,viewButton);
+    }
+
+    private Stage secondLayout(){
+
+        Stage secondlayout = new Stage();
+
+        return secondlayout;
     }
 
     private VBox createMainPanel(){
