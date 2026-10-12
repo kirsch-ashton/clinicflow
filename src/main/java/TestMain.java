@@ -17,10 +17,12 @@ public class TestMain extends Application {
 
     @Override
     public void start(Stage stage) {
-        VBox sidePanel = createSidePanel();
+        BorderPane sidePanel = createSidePanel();
         VBox mainPanel = createMainPanel();
         Image image = new Image(getClass().getResourceAsStream("/images/icon.PNG"));
         stage.getIcons().add(image);
+
+        sidePanel.getStyleClass().add("side-panel");
 
         BorderPane root = new BorderPane();
         root.setLeft(sidePanel);
@@ -35,27 +37,27 @@ public class TestMain extends Application {
         stage.show();
     }
 
-    private VBox createSidePanel() {
+    private BorderPane createSidePanel() {
         Label title = new Label("Clinic Management System");
+        title.setMaxHeight(35);
+        title.setPrefHeight(35);
+        VBox buttonBox = getButtonBox();
+        BorderPane sidePanel = new BorderPane();
 
+        sidePanel.setCenter(buttonBox);
+        sidePanel.setTop(title);
+        buttonBox.setAlignment(Pos.CENTER);
+        BorderPane.setAlignment(title, Pos.BOTTOM_CENTER);
+
+        return sidePanel;
+    }
+
+    private static VBox getButtonBox() {
         Button dashBoard = new Button("Dashboard");
-        dashBoard.setMaxSize(150, 200);
-        dashBoard.setPrefSize(150, 30);
-        dashBoard.setStyle("-fx-background-color: beige");
-
         Button addButton = new Button("Add Patient");
-        addButton.setMaxSize(150, 200);
-        addButton.setPrefSize(150, 30);
-        addButton.setStyle("-fx-background-color: beige");
-        //addButton.setOnAction(e -> addPatient());
-
         Button viewButton = new Button("View Patients");
-        viewButton.setMaxSize(150, 200);
-        viewButton.setPrefSize(150, 30);
-        viewButton.setStyle("-fx-background-color: beige");
-        //viewButton.setOnAction(e -> viewPatients());
 
-        return new VBox(20, title, dashBoard, addButton, viewButton);
+        return new VBox(20,dashBoard,addButton,viewButton);
     }
 
     private VBox createMainPanel(){

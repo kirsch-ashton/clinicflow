@@ -1,0 +1,11 @@
+.side-panel {
+    -fx-pref-width: 250px;
+    -fx-max-width: 250px;
+}
+.button {
+    -fx-pref-height: 40px;
+    -fx-max-height: 40px;
+    -fx-pref-width: 110px;
+    -fx-max-width: 110px;
+    -fx-background-color: beige;
+}
