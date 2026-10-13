@@ -1,3 +1,4 @@
+import gui.AddLayout;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -16,9 +17,10 @@ import model.MedicalRecord;
 import javax.swing.*;
 
 public class TestMain extends Application {
-    private static MedicalRecord mr;
-    private static MedicalRecord mrp;
-    private static BackgroundMain bm;
+    private AddLayout al = new AddLayout();
+    private MedicalRecord mr;
+    private MedicalRecord mrp;
+    private BackgroundMain bm;
     static int choice;
 
     @Override
@@ -58,7 +60,7 @@ public class TestMain extends Application {
         return sidePanel;
     }
 
-    private static VBox getButtonBox() {
+    private VBox getButtonBox() {
         Button dashBoard = new Button("Dashboard");
         Button addButton = new Button("Add Patient");
         Button viewButton = new Button("View Patients");
@@ -67,15 +69,14 @@ public class TestMain extends Application {
             bm.process(choice);
         });
 
+        addButton.setOnAction(event -> {
+            al.addButtonLayout();
+        });
+
         return new VBox(20,dashBoard,addButton,viewButton);
     }
 
-    private Stage secondLayout(){
 
-        Stage secondlayout = new Stage();
-
-        return secondlayout;
-    }
 
     private VBox createMainPanel(){
         Label totalRecords = new Label("Total Records");
