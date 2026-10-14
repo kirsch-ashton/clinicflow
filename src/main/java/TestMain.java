@@ -73,6 +73,10 @@ public class TestMain extends Application {
             al.addButtonLayout();
         });
 
+        viewButton.setOnAction(event -> {
+            al.viewButtonLayout();
+        });
+
         return new VBox(20,dashBoard,addButton,viewButton);
     }
 
